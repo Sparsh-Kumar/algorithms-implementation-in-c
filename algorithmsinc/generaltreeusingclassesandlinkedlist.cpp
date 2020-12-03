@@ -224,7 +224,7 @@ class Node *Tree::findNode (class Node *root = NULL, int identifier = 0) {
 				return firstChild;
 			}
 			firstChild = this->findNode (firstChild, identifier);
-			if (firstChild->getId () == identifier) {
+			if ((firstChild) && (firstChild->getId () == identifier)) {
 				return firstChild;
 			}
 			if (firstChild) {
@@ -251,7 +251,7 @@ int main (int argc, char *argv []) {
 	node = tree->insertSibling (node, 987);
 	tree->setRoot (tree->displayTree (tree->getRoot ()));
 	cout<<"\nfinding the node\n";
-	node = tree->findNode (tree->getRoot (), 5);
+	node = tree->findNode (tree->getRoot (), 9);
 	node->getDetails ();
 	return 0;
 }
