@@ -215,9 +215,12 @@ class Node *Tree::displayTree (class Node *root = NULL) {
 class Node *Tree::findNode (class Node *root = NULL, int identifier = 0) {
 	if (!root) {
 		return NULL;
-	} else if (identifier == 0 || root->getId () == identifier) {
+	} else if (identifier == 0) {
 		return this->rootnode;
-	} else {
+	} else if (root->getId () == identifier) {
+		return root;
+	}
+	else {
 		Node *firstChild = root->getChild ();
 		while (firstChild) {
 			if (firstChild->getId () == identifier) {
